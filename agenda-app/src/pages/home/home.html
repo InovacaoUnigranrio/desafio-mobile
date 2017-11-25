@@ -8,7 +8,6 @@
 
 <ion-content padding>
   <ion-list>
-    <!-- TODO: Integrar com API -->
     <ion-item *ngFor="let task of taskList" (click)="selectTask(task)">{{ task.nome }}</ion-item>
   </ion-list>
   <ion-fab right bottom>
