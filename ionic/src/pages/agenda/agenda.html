@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Minha agenda</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModal()" color="primary">
+        <ion-icon name="add-circle"></ion-icon>
+        <ion-icon name="calendar"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+  <ion-content  padding>
+    <ion-list>
+        <ion-item-sliding *ngFor="let agenda of agendas">
+          <ion-item class="contorno" (click)="openModal({id: agenda.id})">
+       
+     <ion-item >
+        <h2>Nome do evento:{{agenda.nome}}</h2>
+        
+          </ion-item>
+     <ion-item>
+        <h2>Descrição do evento:{{agenda.descricao}}</h2>
+          </ion-item>
+    <ion-item>
+        <h2>Dia de Início:{{agenda.dataInicio}}</h2>
+            </ion-item>
+    <ion-item>
+     
+        <h2>Hora de Início:{{agenda.horaInicio}}</h2>
+
+            </ion-item>
+    <ion-item>
+        <h2>Dia de término:{{agenda.dataFim}}</h2>
+            </ion-item>
+    <ion-item>
+        <h2>Hora de término:{{agenda.horaFim}}</h2>
+
+            </ion-item>
+    </ion-item>
+       
+     
+            <ion-item-options>
+                <button ion-button color="danger" (click)="remove(agenda)">
+                  <ion-icon name="trash"></ion-icon> Deletar
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+             
+             
+            </ion-list>
+          </ion-content>
