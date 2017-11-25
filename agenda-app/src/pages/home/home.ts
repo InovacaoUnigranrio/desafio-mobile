@@ -30,16 +30,16 @@ export class HomePage implements OnInit {
 
 		loader.present();
 		this._http
-            .get("http://localhost:8080/tasks")
-            .map(res => res.json())
-            .toPromise()
-            .then(taskList => {
-                this.taskList = taskList;
-                loader.dismiss();
-            })
-            .catch(err => {
-                console.log(err);
-            });
+			.get("http://localhost:8080/tasks")
+			.map(res => res.json())
+			.toPromise()
+			.then(taskList => {
+					this.taskList = taskList;
+					loader.dismiss();
+			})
+			.catch(err => {
+					console.log(err);
+			});
 	}
 
 	selectTask(task) {
