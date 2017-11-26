@@ -1,23 +1,23 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>
-            Agenda
-        </ion-title>
-    </ion-navbar>
+	<ion-navbar>
+		<ion-title>
+				Agenda
+		</ion-title>
+	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
-        <ion-card-content>
-            <ion-item-group>
-                <ion-item-divider>
-                    <ion-icon ios="ios-checkbox" md="md-checkbox"></ion-icon>
-                    {{ task.nome }}
-                </ion-item-divider>
-                <ion-item> {{ task.descricao }} </ion-item>
-                <ion-item> {{ task.dataInicio }} </ion-item>
-                <ion-item> {{ task.dataFim }} </ion-item>
-            </ion-item-group>
-        </ion-card-content>
-    </ion-card>
+	<ion-card>
+		<ion-card-content>
+			<ion-item-group>
+				<ion-item-divider>
+						<ion-icon ios="ios-checkbox" md="md-checkbox"></ion-icon>
+						{{ task.nome }}
+				</ion-item-divider>
+				<ion-item> {{ task.descricao }} </ion-item>
+				<ion-item> {{ task.dataInicio }} </ion-item>
+				<ion-item> {{ task.dataFim }} </ion-item>
+			</ion-item-group>
+		</ion-card-content>
+	</ion-card>
 </ion-content>
