@@ -1,17 +1,27 @@
-package unigranrio.desafiomobile.api.task;
+package unigranrio.desafiomobile.entity;
 
 public class Task {
 	
+	private Long id;
 	private String dataInicio = "";
 	private String dataFim = "";
 	private String descricao = "";
 	private String nome = "";
 	
-	public Task(String dataInicio, String dataFim, String descricao, String nome) {
+	public Task(Long id, String dataInicio, String dataFim, String descricao, String nome) {
+		this.id = id;
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
 		this.descricao = descricao;
 		this.nome = nome;
+	}
+
+	public Long getId(){
+		return id;
+	}
+
+	public void setId(Long id){
+		this.id = id;
 	}
 
 	public String getDataInicio() {
