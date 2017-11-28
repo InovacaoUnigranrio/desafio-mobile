@@ -30,7 +30,7 @@ export class HomePage implements OnInit {
 
 		loader.present();
 		this._http
-			.get("http://localhost:8080/tasks")
+			.get("http://localhost:8080/v1/task-list")
 			.map(res => res.json())
 			.toPromise()
 			.then(taskList => {
