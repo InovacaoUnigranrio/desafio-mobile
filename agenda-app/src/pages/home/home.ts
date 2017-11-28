@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from "@angular/http";
 import { NavController, LoadingController } from 'ionic-angular';
 
-import { Task } from "../../domain/task";
+import { Task } from "../../domain/task/task";
 
 import { TaskPage } from '../task/task';
 import { NewTaskPage } from '../new-task/new-task';
 
 import "rxjs/add/operator/map";
+import { TaskService } from '../../providers/task-service';
 
 @Component({
 	selector: 'page-home',
@@ -15,11 +15,11 @@ import "rxjs/add/operator/map";
 })
 export class HomePage implements OnInit {
 
-	public taskList: Task[];
+	public tasks: Task[];
 
 	constructor(public navCtrl: NavController,
 		private _loadingCtrl: LoadingController,
-		private _http: Http) {
+		private _taskService: TaskService) {
 		
 	}   
 
@@ -29,17 +29,24 @@ export class HomePage implements OnInit {
 		});
 
 		loader.present();
-		this._http
-			.get("http://localhost:8080/v1/task-list")
-			.map(res => res.json())
-			.toPromise()
-			.then(taskList => {
-					this.taskList = taskList;
-					loader.dismiss();
+		this._taskService.getAllTasks()
+			.then(data => {
+				this.tasks = data;
+				loader.dismiss();
+				console.log(this.tasks);
 			})
-			.catch(err => {
-					console.log(err);
-			});
+
+		// this._http
+		// 	.get("http://localhost:8080/v1/task-list")
+		// 	.map(res => res.json())
+		// 	.toPromise()
+		// 	.then(taskList => {
+		// 			this.taskList = taskList;
+		// 			loader.dismiss();
+		// 	})
+		// 	.catch(err => {
+		// 			console.log(err);
+		// 	});
 	}
 
 	selectTask(task) {
