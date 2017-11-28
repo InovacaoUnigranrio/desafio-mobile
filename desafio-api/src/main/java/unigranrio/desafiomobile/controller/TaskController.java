@@ -12,25 +12,22 @@ import unigranrio.desafiomobile.model.Task;
 import unigranrio.desafiomobile.repository.TaskRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1")
 public class TaskController {
 
 	@Autowired
-	TaskRepository taskRepository;
+	private TaskRepository taskRepository;
 
-	@GetMapping("/tasks")
+	private Task task;
+
+	@GetMapping("/task-list")
 	public List<Task> getAllTasks() {
 		return taskRepository.findAll();
 	}
 
-	@PostMapping("/tasks")
-	public Task createTask(@Valid @RequestBody Task task) {
-		return taskRepository.save(task);
-	}
-
-	@GetMapping("/tasks/{id}")
+	@GetMapping("/task-list/{id}")
 	public ResponseEntity<Task> getTaskById(@PathVariable(value = "id") Long taskId) {
-		Task task = taskRepository.findOne(taskId);
+		task = taskRepository.findOne(taskId);
 
 		if (task == null) {
 			return ResponseEntity.notFound().build();
@@ -38,14 +35,19 @@ public class TaskController {
 		return ResponseEntity.ok().body(task);
 	}
 
-	@DeleteMapping("/tasks/{id}")
+	@PostMapping("/task-list")
+	public Task createTask(@Valid @RequestBody Task task) {
+		return taskRepository.save(task);
+	}
+
+	@DeleteMapping("/task-list/{id}")
 	public ResponseEntity<Task> deleteTask(@PathVariable(value = "id") Long taskId) {
-		Task task = taskRepository.findOne(taskId);
+		task = taskRepository.findOne(taskId);
 
 		if (task == null) {
 			return ResponseEntity.notFound().build();
 		}
-		
+
 		taskRepository.delete(task);
 		return ResponseEntity.ok().body(task);
 

@@ -1,13 +1,14 @@
-package unigranrio.desafiomobile.desafiomobile;
+package unigranrio.desafiomobile;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-public class DesafioMobileApplication {
+@EnableJpaAuditing
+public class DesafioMobileApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DesafioMobileApplication.class, args);
+		SpringApplication.run(DesafioMobileApp.class, args);
 	}
 }
