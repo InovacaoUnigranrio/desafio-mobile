@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { TaskPage } from '../pages/task/task';
+import { SelectedTaskPage } from "../pages/selected-task/selected-task";
 import { NewTaskPage } from '../pages/new-task/new-task';
 
 import { TaskService } from "../providers/task-service";
@@ -19,7 +19,7 @@ import "rxjs/add/operator/toPromise";
   declarations: [
     MyApp,
     HomePage,
-    TaskPage,
+    SelectedTaskPage,
     NewTaskPage
   ],
   imports: [
@@ -31,7 +31,7 @@ import "rxjs/add/operator/toPromise";
   entryComponents: [
     MyApp,
     HomePage,
-    TaskPage,
+    SelectedTaskPage,
     NewTaskPage
   ],
   providers: [
