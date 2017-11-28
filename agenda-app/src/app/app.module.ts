@@ -10,6 +10,8 @@ import { HomePage } from '../pages/home/home';
 import { TaskPage } from '../pages/task/task';
 import { NewTaskPage } from '../pages/new-task/new-task';
 
+import { TaskService } from "../providers/task-service";
+
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
 
@@ -35,6 +37,7 @@ import "rxjs/add/operator/toPromise";
   providers: [
     StatusBar,
     SplashScreen,
+    TaskService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
