@@ -1,23 +1,28 @@
 <ion-header>
-	<ion-navbar>
+	<ion-navbar color="primary">
 		<ion-title>
-				Agenda
+			Agenda
 		</ion-title>
 	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
-	<ion-card>
-		<ion-card-content>
-			<ion-item-group>
-				<ion-item-divider>
-				<ion-icon ios="ios-checkbox" md="md-checkbox"></ion-icon>
-						{{ task.nome }}
-				</ion-item-divider>
-				<ion-item> {{ task.descricao }} </ion-item>
-				<ion-item> {{ task.dataInicio }} </ion-item>
-				<ion-item> {{ task.dataFim }} </ion-item>
-			</ion-item-group>
-		</ion-card-content>
-	</ion-card>
+	<ion-title margin-bottom>{{ task.nome }}</ion-title>
+
+	<ion-item-group>
+		<ion-item-divider>
+			<ion-item>{{ task.descricao }}</ion-item>
+		</ion-item-divider>
+		<ion-item-divider>
+			<ion-item>
+				Data de Inicio: {{ task.dataInicio }}
+			</ion-item>
+			<ion-item>
+				Data de entrega: {{ task.dataFim }}
+			</ion-item>
+		</ion-item-divider>
+	</ion-item-group>
+
+	<button ion-button block (click)="deleteTask()">Concluir tarefa</button>
+
 </ion-content>
