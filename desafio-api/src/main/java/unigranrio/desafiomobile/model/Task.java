@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "tasks")
+@Table(name = "tasks", schema = "agenda_app")
 @EntityListeners(AuditingEntityListener.class)
 public class Task {
 
@@ -15,15 +15,19 @@ public class Task {
 	private Long id;
 
 	@NotBlank
+	@Column(name = "nome")
 	private String nome;
 
 	@NotBlank
+	@Column(name = "descricao")
 	private String descricao;
 
 	@NotBlank
+	@Column(name = "dataInicio")
 	private String dataInicio;
 
 	@NotBlank
+	@Column(name = "dataFim")
 	private String dataFim;
 
 	public Long getId() {
