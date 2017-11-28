@@ -13,6 +13,7 @@ import unigranrio.desafiomobile.repository.TaskRepository;
 
 @RestController
 @RequestMapping("/v1")
+@CrossOrigin(origins = "*")
 public class TaskController {
 
 	@Autowired
