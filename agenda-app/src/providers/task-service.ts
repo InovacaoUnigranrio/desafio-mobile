@@ -1,7 +1,5 @@
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
-
-import { Task } from "../domain/task/task";
 
 import "rxjs/add/operator/map";
 
@@ -10,18 +8,28 @@ export class TaskService {
 
   private _apiUrl: string = "http://localhost:8080/v1/task-list";
 
-  public _task: Task;
-
   constructor(private _http: Http) {}
 
   getAllTasks() {
-    return new Promise(resolve => {
-      this._http.get(this._apiUrl)
-        .map(res => res.json())
-        .subscribe(task => {
-          this._task = task;
-          resolve(this._task);
-        })
-    });
+    return this._http
+      .get(this._apiUrl)
+      .map(res => res.json())
+      .toPromise();
+  }
+
+  addTask(data) {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+
+    return new Promise((resolve, reject) => {
+      this._http
+        .post(this._apiUrl, JSON.stringify(data), { headers: headers })
+        .subscribe(res => {
+            resolve(res);
+          }, err => {
+            reject(err);
+          }
+        );
+    })
   }
 }

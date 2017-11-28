@@ -1,59 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 
 import { Task } from "../../domain/task/task";
-
-import { TaskPage } from '../task/task';
+import { SelectedTaskPage } from '../selected-task/selected-task';
 import { NewTaskPage } from '../new-task/new-task';
+import { TaskService } from '../../providers/task-service';
 
 import "rxjs/add/operator/map";
-import { TaskService } from '../../providers/task-service';
 
 @Component({
 	selector: 'page-home',
 	templateUrl: 'home.html'
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
 	public tasks: Task[];
 
 	constructor(public navCtrl: NavController,
+		private _alertCtrl: AlertController,
 		private _loadingCtrl: LoadingController,
 		private _taskService: TaskService) {
 		
 	}   
 
-	ngOnInit() {
+	ionViewDidEnter() {
 		let loader = this._loadingCtrl.create({
-			content: 'Carregando eventos...'
+			content: 'Carregando tarefas...'
 		});
 
 		loader.present();
+
+		// Carrega servico de listagem da API
 		this._taskService.getAllTasks()
 			.then(data => {
-				this.tasks = data;
-				loader.dismiss();
-				console.log(this.tasks);
+					this.tasks = data;
+					loader.dismiss();
 			})
-
-		// this._http
-		// 	.get("http://localhost:8080/v1/task-list")
-		// 	.map(res => res.json())
-		// 	.toPromise()
-		// 	.then(taskList => {
-		// 			this.taskList = taskList;
-		// 			loader.dismiss();
-		// 	})
-		// 	.catch(err => {
-		// 			console.log(err);
-		// 	});
+			.catch(err => {
+					this._alertCtrl
+						.create({
+							title: 'Ocorreu um erro',
+							subTitle: 'Não foi possível obter os dados. Tente novamente mais tarde.',
+							buttons: [{ text: 'Ok'}]
+						}).present();
+			});
 	}
 
 	selectTask(task) {
-		this.navCtrl.push(TaskPage, { taskSelected: task });
+		this.navCtrl.push(SelectedTaskPage, { taskSelected: task });
 	}
 
-	addTask(){
+	addNewTask(){
 		this.navCtrl.push(NewTaskPage);
 	}
 }

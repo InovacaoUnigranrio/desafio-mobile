@@ -2,9 +2,9 @@ import { Component } from "@angular/core";
 import { NavParams, NavController } from "ionic-angular";
 
 @Component({
-	templateUrl: 'task.html'
+	templateUrl: 'selected-task.html'
 })
-export class TaskPage {
+export class SelectedTaskPage {
 
 	public task;
 
