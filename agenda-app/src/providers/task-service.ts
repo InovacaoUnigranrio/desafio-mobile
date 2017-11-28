@@ -17,7 +17,7 @@ export class TaskService {
       .toPromise();
   }
 
-  addTask(data) {
+  saveTask(data) {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
 

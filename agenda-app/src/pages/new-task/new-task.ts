@@ -21,7 +21,7 @@ export class NewTaskPage {
 
   addNewTask() {
     this._taskService
-      .addTask(this.task)
+      .saveTask(this.task)
       .then((result) => {
         console.log(result);
         this.navCtrl.pop();

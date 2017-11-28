@@ -51,7 +51,7 @@ export class HomePage {
 		this.navCtrl.push(SelectedTaskPage, { taskSelected: task });
 	}
 
-	addNewTask(){
+	createTask(){
 		this.navCtrl.push(NewTaskPage);
 	}
 }
