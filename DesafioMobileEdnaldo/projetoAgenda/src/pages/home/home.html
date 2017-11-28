@@ -1,0 +1,47 @@
+<!-- Tela inicial -->
+<ion-header >
+  <ion-navbar color="dark">
+    <ion-title align="center">Agenda virtual</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- Conteúdo -->
+<ion-content padding>
+  <h2 align="center">Bem-vindo a sua agenda virtual.</h2>
+  <p align="justify">
+    Essa é uma agenda virtual, criada com o propósito de facilitar a sua vida. 
+  </p>
+  <p align="justify">  
+    Ela serve para que você possa consultar seus compromissos quando quiser, na palma da sua mão.
+  </p>
+                 <!-- Login e senha --> 
+                <div>
+                
+                  <ion-list>
+                     
+                   <ion-item class="item-text-wrap">
+                        <ion-label floating> Nome de usuário ou e-mail <ion-icon name="ios-contact"> </ion-icon></ion-label>
+                        <ion-input type="text"> </ion-input>
+                   </ion-item>
+
+
+                    <ion-item>
+                        <ion-label floating> Senha <ion-icon name="key"> </ion-icon></ion-label>
+                        <ion-input type="password"> </ion-input>
+                    </ion-item>
+
+                  </ion-list>
+ 
+                 <button ion-button color="dark" (click)="navigate()">Enviar dados </button>
+               
+               </div>
+
+
+              <ion-item class="check">
+
+                  <ion-label>Manter-me logado</ion-label>
+
+                    <ion-checkbox color="dark" checked="false"></ion-checkbox>
+
+              </ion-item>
+</ion-content>

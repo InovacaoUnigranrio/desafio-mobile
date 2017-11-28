@@ -1,0 +1,21 @@
+<!-- Tela onde se decide a ação do usuário -->
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title align="center">Agenda virtual</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding align="center">
+  <h4> Olá, agora que você veio, nos diga, o que deseja fazer ? </h4>
+  <div class="btns">
+  <button ion-button color="dark" (click)="novoEvents()"> Adicionar novos eventos </button>
+  <button ion-button color="dark" (click)="listaEvents()"> Visualizar lista de eventos </button>
+  </div>
+
+  <div class="baixo">
+  	<ion-label> Visualizar calendário <ion-icon name="calendar"></ion-icon> </ion-label>
+  </div>
+
+
+</ion-content>
+

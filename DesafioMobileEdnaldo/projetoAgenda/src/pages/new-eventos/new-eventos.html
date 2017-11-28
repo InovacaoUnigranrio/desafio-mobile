@@ -1,0 +1,47 @@
+<!-- Tela para adicionar novos eventos -->
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title align="justify">Agenda Virtual <br>Novo evento</ion-title>
+  	
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+     <!-- Lista com as opções para preenchimento -->
+	<div>
+
+		<ion-list>
+                   <!-- Item data de inicio -->  
+                   <ion-item class="item-text-wrap">
+                        <ion-label floating> Data de início :  <ion-icon name="calendar"> </ion-icon></ion-label>
+                        <ion-input type="text"> </ion-input>
+                   </ion-item>
+
+                    <!-- Item data de término -->
+                    <ion-item>
+                        <ion-label floating> Data de término : <ion-icon name="calendar"> </ion-icon></ion-label>
+                        <ion-input type="text"> </ion-input>
+                    </ion-item>
+                    <!-- Ítem descrição --> 
+					<ion-item>
+                        <ion-label floating> Descrição :  <ion-icon name="create"> </ion-icon></ion-label>
+                        <ion-input type="text"> </ion-input>
+                    </ion-item>
+                    <!-- Ítem nome do Evento -->
+                    <ion-item>
+                        <ion-label floating> Nome do evento: <ion-icon name="create"> </ion-icon></ion-label>
+                        <ion-input type="text"> </ion-input>
+                    </ion-item>	
+
+        </ion-list>
+
+                 <button ion-button color="dark" (click)="sucessoEvento()">Enviar dados </button>
+    </div>
+
+
+
+</ion-content>
