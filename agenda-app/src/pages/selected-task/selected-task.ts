@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { NavParams, NavController } from "ionic-angular";
+
 import { Task } from "../../domain/task/task";
 import { TaskService } from "../../providers/task-service";
 
@@ -14,6 +15,7 @@ export class SelectedTaskPage {
 		this.task = this.navParams.get('taskSelected');
 	}
 
+	// Faz delete request ao provider
 	deleteTask(){
 		this._taskService
 			.deleteTask(this.task)

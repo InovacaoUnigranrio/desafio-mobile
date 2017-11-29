@@ -3,9 +3,9 @@ import { NavController, LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 
 import { Task } from "../../domain/task/task";
+import { TaskService } from '../../providers/task-service';
 import { SelectedTaskPage } from '../selected-task/selected-task';
 import { NewTaskPage } from '../new-task/new-task';
-import { TaskService } from '../../providers/task-service';
 
 import "rxjs/add/operator/map";
 
@@ -25,6 +25,7 @@ export class HomePage {
 	}   
 
 	ionViewDidEnter() {
+		// Loading até a API ser carregada
 		let loader = this._loadingCtrl.create({
 			content: 'Carregando tarefas...'
 		});

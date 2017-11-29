@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "tasks", schema = "agenda_app")
+@Table(name = "tasks")
 @EntityListeners(AuditingEntityListener.class)
 public class Task {
 

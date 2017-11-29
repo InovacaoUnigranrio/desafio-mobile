@@ -13,7 +13,7 @@ import unigranrio.desafiomobile.repository.TaskRepository;
 
 @RestController
 @RequestMapping("/v1")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")		// Aciona CORS para todos os metodos da classe
 public class TaskController {
 
 	@Autowired
@@ -26,15 +26,17 @@ public class TaskController {
 		return taskRepository.findAll();
 	}
 
-	@GetMapping("/task-list/{id}")
-	public ResponseEntity<Task> getTaskById(@PathVariable(value = "id") Long taskId) {
-		task = taskRepository.findOne(taskId);
+	// Não usado
+	
+	// @GetMapping("/task-list/{id}")
+	// public ResponseEntity<Task> getTaskById(@PathVariable(value = "id") Long taskId) {
+	// 	task = taskRepository.findOne(taskId);
 
-		if (task == null) {
-			return ResponseEntity.notFound().build();
-		}
-		return ResponseEntity.ok().body(task);
-	}
+	// 	if (task == null) {
+	// 		return ResponseEntity.notFound().build();
+	// 	}
+	// 	return ResponseEntity.ok().body(task);
+	// }
 
 	@PostMapping("/task-list")
 	public Task createTask(@Valid @RequestBody Task task) {

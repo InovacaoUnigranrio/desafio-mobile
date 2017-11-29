@@ -20,11 +20,12 @@ export class NewTaskPage {
 
       this._alert = this._alertCtrl.create({
         buttons: [
-          { text: "Ok", handler: () => this.navCtrl.setRoot(HomePage) }
+          { text: "Ok", handler: () => { this.navCtrl.setRoot(HomePage) } }   // Handler redireciona para a página root quando clica no botão
         ]
       });
   }
 
+  // Faz post request ao provider
   addNewTask() {
     this._taskService
       .saveTask(this.task)

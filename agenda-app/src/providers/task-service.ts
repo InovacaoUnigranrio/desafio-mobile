@@ -1,8 +1,9 @@
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 
-import "rxjs/add/operator/map";
 import { Task } from '../domain/task/task';
+
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class TaskService {
@@ -15,6 +16,7 @@ export class TaskService {
     this._headers.append("Content-Type", "application/json");
   }
 
+  // Listagem de todos os eventos
   getAllTasks() {
     return this._http
       .get(this._apiUrl)
@@ -22,6 +24,7 @@ export class TaskService {
       .toPromise();
   }
 
+  // Armazenamento dos eventos
   saveTask(data: Task) {
     return new Promise((resolve, reject) => {
       this._http
@@ -35,6 +38,7 @@ export class TaskService {
     })
   }
 
+  // Remove evento pelo id
   deleteTask(data: Task){
     return this._http
       .delete(this._apiUrl + '/' + data.id);
