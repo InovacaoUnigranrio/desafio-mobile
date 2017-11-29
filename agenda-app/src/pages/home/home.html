@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Agenda
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div margin-bottom text-center>
+    <ion-title>Tarefas</ion-title>
+  </div>
+  <ion-list>
+    <ion-item-group *ngFor="let task of tasks">
+      <ion-item (click)="selectTask(task)">
+        {{ task.nome }}
+        <br>
+        Entrega: {{ task.dataFim }}
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+
+  <button ion-button block (click)="createTask()">Adicionar tarefa</button>
+</ion-content>

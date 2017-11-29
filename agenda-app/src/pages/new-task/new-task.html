@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Nova Tarefa</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="addNewTask()">
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input [(ngModel)]="task.nome" name="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Descricao</ion-label>
+      <ion-input [(ngModel)]="task.descricao" name="descricao"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Data Inicio</ion-label>
+      <ion-input [(ngModel)]="task.dataInicio" name="dataInicio"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Data Fim</ion-label>
+      <ion-input [(ngModel)]="task.dataFim" name="dataFim"></ion-input>
+    </ion-item>
+
+    <button ion-button block type="submit">Adicionar</button>
+  </form>
+</ion-content>
