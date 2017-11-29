@@ -1,0 +1,66 @@
+<!--
+  Generated template for the VisualizarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Suas Tarefas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-card>
+        
+      <ion-card-header>
+        Observação
+      </ion-card-header>
+    
+      <ion-card-content>
+        Pressione para visualizar os detalhes das tarefas, role para a direita para mais opções.
+      </ion-card-content>
+    
+    </ion-card>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 style="margin-left:30%">
+          <img src="../assets/imgs/tarefasLista.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-card *ngIf="tarefas == null || tarefas == 0">  
+      <ion-card-content>
+        Você ainda não adicionou nenhuma tarefa.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list *ngFor="let tarefa of tarefas" (press)="abrirTarefa(tarefa.status, tarefa.nome, tarefa.descricao, tarefa.datainicio, tarefa.datafim, tarefa.id)">
+      <ion-item-sliding>
+        <ion-item>
+          <ion-avatar item-start>
+              <img *ngIf="tarefa.status == 0" src="../assets/imgs/nconc.png">
+              <img *ngIf="tarefa.status == 1" src="../assets/imgs/conc.png">
+          </ion-avatar>
+          <h2>{{ tarefa.nome }}</h2>
+          <p>{{ tarefa.descricao }}</p>
+        </ion-item>
+        <ion-item-options side="right">
+            <button ion-button color="blue" (click)="editarTarefa(tarefa)">
+              <ion-icon name="ios-cog-outline"></ion-icon>  
+              Editar
+            </button>
+            <button ion-button color="danger" (click)="deletarTarefa(tarefa)">
+              <ion-icon name="ios-trash"></ion-icon>
+              Deletar
+            </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+</ion-content>

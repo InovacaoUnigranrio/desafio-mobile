@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ nomeTarefa }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+      <ion-card-header>
+        <h1>Detalhes</h1>
+      </ion-card-header>
+      <ion-card-content>
+        Nome: {{ nomeTarefa }}<br><br>
+        Descricao: {{ descricao }}<br><br>
+        Data Inicial: {{ datainicio }}<br><br>
+        Data Final: {{ datafim }}<br><br>
+        <p *ngIf="status == 0">Status: <strong>Tarefa Não Concluída</strong></p>
+        <p *ngIf="status == 1">Status: <strong>Tarefa Concluída</strong></p>
+      </ion-card-content>
+    </ion-card>
+    <button *ngIf="status == 0" ion-button block (click)="presentLoading()">Marcar Tarefa Como Concluída</button>
+    <button *ngIf="status == 1" ion-button block disabled>Tarefa Concluída</button>
+</ion-content>
